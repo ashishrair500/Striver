@@ -26,15 +26,15 @@ class Solution{
         // code here
         if(N==1) return 0;
         int count=0;
-        for(int i=1; i*i<=N; i++){
-            if(N%i==0){ count++;
+        for(int i=2; i<=Math.sqrt(N); i++){
             
-                if(N/i!=i) count++;
-                
+            if(N%i==0){ count++;
+              
             }
         }
+        if(count==0) return 1;
         
-        if(count==2) return 1;
+        
         return 0;
     }
 }
