@@ -27,15 +27,11 @@ class Solution {
         
         
         
-        int modK=k%n;
-        
+    int modK=k%n;
         
     reverse(nums,0,n-1);    
     reverse(nums,0,modK-1);    
-    reverse(nums,modK,n-1);    
-
-        
-        
+    reverse(nums,modK,n-1);   
     }
     
     
@@ -43,22 +39,12 @@ class Solution {
     void reverse(int arr[],int start,int end){
         
        while(start<end){
-           
            int temp=arr[start];
            arr[start]=arr[end];
            arr[end]=temp;
            start++;
-           end--;
-            
-            
-        }
-        
-        
-        
+           end--;  
+        }   
     }
-    
-    
-    
-    
     
 }
