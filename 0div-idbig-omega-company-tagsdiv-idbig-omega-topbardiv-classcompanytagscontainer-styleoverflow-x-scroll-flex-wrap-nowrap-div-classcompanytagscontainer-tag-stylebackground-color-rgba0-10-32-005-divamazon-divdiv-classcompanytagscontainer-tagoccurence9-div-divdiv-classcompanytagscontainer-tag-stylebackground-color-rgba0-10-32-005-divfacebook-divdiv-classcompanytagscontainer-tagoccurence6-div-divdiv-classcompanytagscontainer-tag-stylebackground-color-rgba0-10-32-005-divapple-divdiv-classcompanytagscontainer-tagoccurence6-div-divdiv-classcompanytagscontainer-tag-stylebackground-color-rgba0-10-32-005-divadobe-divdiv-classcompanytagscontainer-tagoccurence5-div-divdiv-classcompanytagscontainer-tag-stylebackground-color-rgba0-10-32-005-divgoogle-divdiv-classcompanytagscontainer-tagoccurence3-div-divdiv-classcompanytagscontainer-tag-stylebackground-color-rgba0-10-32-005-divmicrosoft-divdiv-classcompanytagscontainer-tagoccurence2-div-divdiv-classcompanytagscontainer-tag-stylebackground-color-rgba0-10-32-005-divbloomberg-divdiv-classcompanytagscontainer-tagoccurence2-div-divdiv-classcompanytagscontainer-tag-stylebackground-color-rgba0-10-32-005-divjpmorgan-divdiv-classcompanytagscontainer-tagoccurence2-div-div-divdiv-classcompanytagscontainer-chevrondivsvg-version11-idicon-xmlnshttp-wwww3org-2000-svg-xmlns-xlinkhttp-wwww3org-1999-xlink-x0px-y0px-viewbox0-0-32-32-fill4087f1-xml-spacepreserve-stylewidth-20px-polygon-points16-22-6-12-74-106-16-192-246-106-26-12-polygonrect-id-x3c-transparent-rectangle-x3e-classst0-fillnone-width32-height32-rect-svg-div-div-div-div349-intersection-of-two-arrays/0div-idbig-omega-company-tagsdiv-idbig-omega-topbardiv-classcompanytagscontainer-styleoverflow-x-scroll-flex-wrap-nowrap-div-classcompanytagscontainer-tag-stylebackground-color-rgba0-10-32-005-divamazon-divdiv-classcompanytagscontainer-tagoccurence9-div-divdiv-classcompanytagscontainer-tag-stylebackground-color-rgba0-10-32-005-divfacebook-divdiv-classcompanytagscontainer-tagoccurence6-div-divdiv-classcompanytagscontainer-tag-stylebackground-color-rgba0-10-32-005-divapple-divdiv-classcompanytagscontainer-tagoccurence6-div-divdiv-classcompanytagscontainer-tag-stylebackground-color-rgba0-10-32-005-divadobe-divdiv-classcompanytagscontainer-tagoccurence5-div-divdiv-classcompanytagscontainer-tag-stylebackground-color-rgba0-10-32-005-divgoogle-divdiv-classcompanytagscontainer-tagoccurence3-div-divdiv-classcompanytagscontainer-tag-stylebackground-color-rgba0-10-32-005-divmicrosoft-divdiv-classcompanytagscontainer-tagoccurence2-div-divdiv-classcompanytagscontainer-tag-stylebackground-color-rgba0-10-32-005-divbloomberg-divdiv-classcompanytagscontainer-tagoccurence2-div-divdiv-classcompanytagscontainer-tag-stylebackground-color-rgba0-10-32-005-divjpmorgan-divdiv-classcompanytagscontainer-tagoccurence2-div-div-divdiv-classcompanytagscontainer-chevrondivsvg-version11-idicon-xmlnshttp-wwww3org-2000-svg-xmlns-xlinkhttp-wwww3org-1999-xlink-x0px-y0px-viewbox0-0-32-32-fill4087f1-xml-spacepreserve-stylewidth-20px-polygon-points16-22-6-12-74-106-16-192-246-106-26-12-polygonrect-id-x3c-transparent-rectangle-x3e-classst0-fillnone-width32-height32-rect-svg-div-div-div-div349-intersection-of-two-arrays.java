@@ -4,9 +4,10 @@ class Solution {
         
          int n=a.length;
          int m=b.length;
-        //Striver brute force approach
-        
         ArrayList<Integer> as= new ArrayList<>();
+
+        //Striver brute force approach
+        /*
         
      //   int visit[]= new int [m];
        // Arrays.fill(visit,0);
@@ -35,6 +36,42 @@ class Solution {
         }
         
         return ans;
+        */
+        
+        //optimal solution ut arrays should be sorted
+        
+        Arrays.sort(a);
+        Arrays.sort(b);
+        
+        int i=0;
+        int j=0;
+        while(i<n && j<m){
+            
+            if(a[i]<b[j]){
+               i++;
+                
+            }else if(a[i]>b[j]){
+                j++;
+            }
+            else{
+           if(!as.contains(a[i])){
+             as.add(a[i]);
+            }
+                i++;
+                j++;
+            }
+        }
+        
+        int ans[]=new int[as.size()];
+        
+        for(int k=0; k<as.size();  k++){
+            ans[k]=as.get(k);
+            
+        }
+        
+        return ans;
+        
+        
         
     
     }
