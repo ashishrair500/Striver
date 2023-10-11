@@ -28,13 +28,26 @@ class Solution
 {
      long floorSqrt(long x)
 	 {
-		// Your code here
-		for(long i=1; i<=x; i++){
-		    if(i*i<=x && (i+1)*(i+1)>=x) {
-		        if((i+1)*(i+1)==x) return i+1;
+		// optimal solution using binary search
+		
+		long start=1;
+		long end=x;
+		long mid=(start+end)/2;
+		
+		while(start<=end){
 		    
-		    return i;}
+		     mid=(start+end)/2;
+		     if(mid*mid<=x && (mid+1)*(mid+1)>=x){
+		         if((mid+1)*(mid+1)==x) return mid+1;
+		         
+		         return mid;
+		     }else{
+		     
+		     if(mid*mid>x) end=mid-1;
+		     else if(mid*mid<x) start=mid+1;
+		   }
 		}
+		
 		return -1;
 	 }
 }
