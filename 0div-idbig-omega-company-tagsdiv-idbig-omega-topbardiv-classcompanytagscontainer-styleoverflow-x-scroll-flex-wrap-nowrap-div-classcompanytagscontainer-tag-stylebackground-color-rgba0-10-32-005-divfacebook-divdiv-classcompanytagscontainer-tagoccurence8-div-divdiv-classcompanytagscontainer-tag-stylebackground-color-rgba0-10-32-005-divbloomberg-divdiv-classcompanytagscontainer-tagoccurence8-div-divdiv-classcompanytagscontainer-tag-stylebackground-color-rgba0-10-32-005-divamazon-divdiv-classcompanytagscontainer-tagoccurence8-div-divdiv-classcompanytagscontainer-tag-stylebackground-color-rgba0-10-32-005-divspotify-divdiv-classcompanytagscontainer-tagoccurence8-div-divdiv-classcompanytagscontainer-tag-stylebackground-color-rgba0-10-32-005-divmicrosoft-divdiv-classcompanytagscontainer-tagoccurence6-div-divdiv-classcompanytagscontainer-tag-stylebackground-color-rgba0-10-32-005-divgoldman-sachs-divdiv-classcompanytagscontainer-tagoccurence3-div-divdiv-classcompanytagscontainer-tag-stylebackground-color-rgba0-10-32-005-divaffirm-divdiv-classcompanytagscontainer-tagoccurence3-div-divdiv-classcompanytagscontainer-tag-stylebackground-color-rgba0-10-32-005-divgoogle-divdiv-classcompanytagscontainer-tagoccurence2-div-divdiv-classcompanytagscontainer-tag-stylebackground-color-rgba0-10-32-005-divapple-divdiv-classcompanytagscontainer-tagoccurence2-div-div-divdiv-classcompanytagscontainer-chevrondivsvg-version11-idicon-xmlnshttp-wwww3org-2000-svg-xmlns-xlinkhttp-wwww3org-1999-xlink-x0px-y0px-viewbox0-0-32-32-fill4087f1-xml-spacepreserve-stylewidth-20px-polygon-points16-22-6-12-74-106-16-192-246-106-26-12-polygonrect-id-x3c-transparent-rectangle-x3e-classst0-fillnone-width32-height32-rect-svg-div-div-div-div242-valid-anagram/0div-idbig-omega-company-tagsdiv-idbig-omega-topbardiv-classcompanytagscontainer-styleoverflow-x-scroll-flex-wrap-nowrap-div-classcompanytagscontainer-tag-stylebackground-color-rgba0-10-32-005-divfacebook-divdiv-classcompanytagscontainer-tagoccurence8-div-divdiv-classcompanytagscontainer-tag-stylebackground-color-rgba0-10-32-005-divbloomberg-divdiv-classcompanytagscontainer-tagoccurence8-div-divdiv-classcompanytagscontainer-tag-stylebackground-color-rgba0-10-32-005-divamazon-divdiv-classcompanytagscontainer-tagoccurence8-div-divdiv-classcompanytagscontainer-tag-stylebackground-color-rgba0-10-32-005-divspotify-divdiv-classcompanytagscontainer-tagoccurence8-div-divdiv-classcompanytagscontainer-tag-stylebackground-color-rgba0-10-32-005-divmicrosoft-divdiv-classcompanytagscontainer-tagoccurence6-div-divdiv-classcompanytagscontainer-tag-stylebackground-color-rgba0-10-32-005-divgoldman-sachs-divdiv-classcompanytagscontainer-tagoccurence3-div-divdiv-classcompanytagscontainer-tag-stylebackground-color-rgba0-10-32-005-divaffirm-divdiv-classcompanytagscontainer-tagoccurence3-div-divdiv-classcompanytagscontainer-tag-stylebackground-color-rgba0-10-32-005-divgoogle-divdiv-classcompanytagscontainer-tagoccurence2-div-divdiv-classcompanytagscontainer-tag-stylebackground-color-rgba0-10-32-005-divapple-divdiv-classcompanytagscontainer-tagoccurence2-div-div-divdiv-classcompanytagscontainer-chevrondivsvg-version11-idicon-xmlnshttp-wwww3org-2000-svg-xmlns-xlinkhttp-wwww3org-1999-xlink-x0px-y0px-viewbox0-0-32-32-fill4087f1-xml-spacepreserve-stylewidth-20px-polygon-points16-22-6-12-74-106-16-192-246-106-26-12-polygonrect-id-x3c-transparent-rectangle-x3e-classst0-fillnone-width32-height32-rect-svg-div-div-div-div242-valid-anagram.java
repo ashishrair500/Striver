@@ -1,5 +1,18 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
+        
+        char ch1 []=s.toCharArray();
+        char ch2 []=t.toCharArray();
+        Arrays.sort(ch1);
+        Arrays.sort(ch2);
+
+       
+        
+        return Arrays.equals(ch1,ch2);
+ 
+
+        
+        /*
          if(s.length()!=t.length()) return false;
         
         HashMap<Character,Integer>hm = new HashMap<>();
@@ -28,7 +41,7 @@ class Solution {
             if(!hm.get(k).equals(hm2.get(k))) return false;
             
         }
-        return true;
+        return true;*/
     
     }
 }
