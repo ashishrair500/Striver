@@ -1,19 +1,14 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        HashMap<Integer,Integer> hm= new HashMap<>();
+        //moore voting machine algorithm
+       int count=0;
+        int element=nums[0];
         for(int i=0; i<nums.length; i++){
-            if(hm.containsKey(nums[i])) hm.put(nums[i],hm.get(nums[i])+1);
-            else hm.put(nums[i],1);
+            if(count==0)element=nums[i];
+            if(element==nums[i]) count++;
+            else count--;
+            
         }
-        int ans2=nums[0];
-        int ans=0;
-        
-        for(Map.Entry<Integer,Integer>e:hm.entrySet()){
-            if(e.getValue()>ans){
-                ans=e.getValue();
-                ans2=e.getKey();
-            }
-        }
-        return ans2;
+    return element;
     }
 }
