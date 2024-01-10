@@ -1,28 +1,19 @@
 class Solution {
     public int majorityElement(int[] nums) {
-       // your code here
-        //we can solve this proble using two loops in O(n^2) and using hashmap in O(n)
-        //but for optimal approch we use moore voting machine
-        int element=nums[0];
-        int count=0;
+        HashMap<Integer,Integer> hm= new HashMap<>();
         for(int i=0; i<nums.length; i++){
-             if(count==0)element=nums[i];
-            if(element==nums[i])count++;
-            else{count--;}
-           
-                    }
+            if(hm.containsKey(nums[i])) hm.put(nums[i],hm.get(nums[i])+1);
+            else hm.put(nums[i],1);
+        }
+        int ans2=nums[0];
+        int ans=0;
         
-        return element;
-        
-        //this loop to reverify element
-        /*
-          count=0;
-          for(int i=0; i<nums.length; i++){
-              if(nums[i]==element) 
-              count++;
-              
-          }
-        return count>size/2?element:-1;
-        */
+        for(Map.Entry<Integer,Integer>e:hm.entrySet()){
+            if(e.getValue()>ans){
+                ans=e.getValue();
+                ans2=e.getKey();
+            }
+        }
+        return ans2;
     }
 }
