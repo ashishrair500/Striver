@@ -110,22 +110,19 @@ class Node {
     }
 } */
 class Solution {
-    
-    public static void inOrderT(ArrayList<Integer> list,Node root){
-        if(root==null) return;
-        
-        inOrderT(list,root.left);
-        list.add(root.data);
-        inOrderT(list,root.right);
-    }
     // Function to return a list containing the inorder traversal of the tree.
+    public static void inor(ArrayList<Integer> arr, Node curr){
+        if(curr==null) return;
+        
+        inor(arr,curr.left);
+        arr.add(curr.data);
+        inor(arr,curr.right);
+    }
     ArrayList<Integer> inOrder(Node root) {
         // Code
-         ArrayList<Integer> arr= new  ArrayList<>();
+        ArrayList<Integer> list= new ArrayList<>();
+        inor(list,root);
         
-          inOrderT(arr,root);
-        // First recur on left subtree
-       
-       return arr;
+        return list;
     }
 }
