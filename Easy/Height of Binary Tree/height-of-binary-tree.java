@@ -127,7 +127,7 @@ class Solution {
             return 0;
         } else {
             int leftHeight = height(node.left);
-            int rightHeight = height(node.right);
+            int rightHeight = height(node.right) ;
             return Math.max(leftHeight, rightHeight) + 1;
         }
         // code here 
