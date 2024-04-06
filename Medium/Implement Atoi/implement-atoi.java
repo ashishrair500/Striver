@@ -31,43 +31,26 @@ class aToi
 class Solution
 {
     int atoi(String s) {
-        int ans=1;
-	// Your code here
-	if(s.length()==1 && Character.isDigit(s.charAt(0)))
-	return (int)s.charAt(0)-48;
-	else if(s.charAt(0)!='-'&&!Character.isDigit(s.charAt(0))) return -1;
-	else if(!Character.isDigit(s.charAt(1))) return -1;
+	// Your code 
 	
-	if(s.charAt(0)=='-')
-	{
-	   ans=(int)s.charAt(1)-48;
-	}else if(Character.isDigit(s.charAt(0))){
-	  ans=(int)s.charAt(0)-48;
+	int sign =1;
+     int num=0;
+	 if(Character.isLetter(s.charAt(0)) ) return -1;
+
+
+	for( int i=0; i<s.length(); i++){
 	  
+	    
+	    if (i == 0 && s.charAt(i) == '-') {
+            sign = -1;
+            continue;
+        }
+	    
+	    if(!Character.isDigit(s.charAt(i)) ) return -1;
+	    int n=s.charAt(i)-'0';
+	    num=num*10+n;
 	}
-	else return -1;
 	
-	
-	if (!Character.isDigit(s.charAt(1)))return -1;
-	
-	boolean flag =true;
-	for(int i=1; i<s.length(); i++){
-	    
-	    	if(s.charAt(0)=='-' && flag==true){ 
-	    	    flag=false;
-	    	    continue;
-	    	    
-	    	}
-	    
-	        if(Character.isDigit(s.charAt(i))){
-	        
-	        ans=ans*10+((int)s.charAt(i)-48);
-	        
-	        }else return -1;
-	    
-	    
-	    
-	}
-	return s.charAt(0)=='-'?-ans:ans;
-	}
+	return sign*num;
+    }
 }
