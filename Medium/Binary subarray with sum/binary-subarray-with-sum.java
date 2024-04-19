@@ -41,6 +41,7 @@ class Solution
            temp=0;
         while(sum==target)
          {  
+             
            temp++;
            sum=sum-arr[i];
            i++;
