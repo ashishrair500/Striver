@@ -20,11 +20,6 @@ class Solution {
             else if(nums[mid]<nums[mid+1]) start=mid+1;
             else end=mid-1;
         }            
-            
-            
-        
-        
-        
         return -1;
     }
 }
