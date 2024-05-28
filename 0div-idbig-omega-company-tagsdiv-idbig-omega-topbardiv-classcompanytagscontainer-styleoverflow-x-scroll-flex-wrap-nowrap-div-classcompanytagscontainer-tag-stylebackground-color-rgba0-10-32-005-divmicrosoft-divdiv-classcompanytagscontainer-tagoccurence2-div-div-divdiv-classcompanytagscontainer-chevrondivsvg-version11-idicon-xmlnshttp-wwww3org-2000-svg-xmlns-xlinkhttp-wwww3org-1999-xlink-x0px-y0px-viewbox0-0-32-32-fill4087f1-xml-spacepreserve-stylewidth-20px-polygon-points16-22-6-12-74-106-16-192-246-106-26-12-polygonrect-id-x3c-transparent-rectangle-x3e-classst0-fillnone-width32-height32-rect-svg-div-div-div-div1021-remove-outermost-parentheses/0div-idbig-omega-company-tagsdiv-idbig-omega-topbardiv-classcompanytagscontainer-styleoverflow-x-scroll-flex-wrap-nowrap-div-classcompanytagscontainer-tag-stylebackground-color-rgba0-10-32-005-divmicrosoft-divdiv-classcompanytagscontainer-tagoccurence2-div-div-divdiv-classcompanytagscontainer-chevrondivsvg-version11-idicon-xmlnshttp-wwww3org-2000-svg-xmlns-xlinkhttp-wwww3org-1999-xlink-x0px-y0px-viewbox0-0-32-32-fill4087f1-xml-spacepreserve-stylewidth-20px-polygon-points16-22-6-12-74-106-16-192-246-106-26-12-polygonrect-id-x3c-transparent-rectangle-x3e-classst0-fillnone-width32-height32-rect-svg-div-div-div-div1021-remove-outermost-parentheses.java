@@ -1,21 +1,25 @@
 class Solution {
     public String removeOuterParentheses(String s) {
-         Stack<Character> st = new Stack<>();
+        Stack <Character> st = new Stack<>();
         StringBuilder sb = new StringBuilder();
+        st.push(s.charAt(0));
+      for(int i=1; i<s.length(); i++){
+          if(s.charAt(i)=='('){
 
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '(') {
-                if (st.size() >= 1) {
-                    sb.append(s.charAt(i));
-                }
-                st.push(s.charAt(i));
-            } else {
-                if (st.size() > 1) {
-                    sb.append(s.charAt(i));
-                }
-                st.pop();
-            }
-        }
+              
+              if(!st.isEmpty()){
+                   sb.append(s.charAt(i));
+              }
+                           st.push('(');
+          }else{
+               st.pop();
+              if(!st.isEmpty()){
+                   sb.append(s.charAt(i));
+              }
+          }
+      }
+        
+        
         return sb.toString();
     }
 }
