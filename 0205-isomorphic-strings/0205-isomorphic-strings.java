@@ -4,16 +4,11 @@ class Solution {
         
         
         for(int i=0; i<str1.length(); i++){
-            if(hm.containsKey(str1.charAt(i))  &&    hm.get(str1.charAt(i))!=str2.charAt(i)){ 
-                
-         return false;
-            
-                
+            if(hm.containsKey(str1.charAt(i))  &&    hm.get(str1.charAt(i))!=str2.charAt(i) 
+         return false!   
             }else if(!(hm.containsKey(str1.charAt(i))) && hm.containsValue(str2.charAt(i)))
             {
-                
                 return false;
-                
             }else{
                 hm.put(str1.charAt(i),str2.charAt(i));
             }
