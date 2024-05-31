@@ -20,21 +20,21 @@ class GFG {
 
 
 
+
+
 class Solution 
 {
     //Function to reverse words in a given string.
     String reverseWords(String S)
     {
-        // code here 
-        StringBuilder str= new StringBuilder();
-        String st []= S.split("[.]");
-        
-        for(int i=st.length-1; i>=0; i-- ){
-            str.append(st[i]);
-            str.append('.');
-            
-        }
-        str.deleteCharAt(str.length()-1);
-        return str.toString();
+      String ans="";
+      String str []= S.split("[.]");
+      for(int i=str.length-1; i>=0; i--){
+           if(i>0)
+            {
+                ans=ans+str[i]+".";
+            }else  ans=ans+str[i];
+      }
+        return ans;// code here 
     }
 }
