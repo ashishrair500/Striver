@@ -8,8 +8,6 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-
-
 class Solution {
     public ListNode sortList(ListNode head) {
         if(head==null) return head;
@@ -19,13 +17,11 @@ class Solution {
             ar.add(temp.val);
             temp=temp.next;
         }
-        
         Collections.sort(ar);
-     head= new ListNode(ar.get(0));
+      head= new ListNode(ar.get(0));
       temp=head;
      for(int i=1; i<ar.size(); i++){
          ListNode newNode=new ListNode(ar.get(i));
-         
          temp.next=newNode;
          temp=temp.next;
          }   
