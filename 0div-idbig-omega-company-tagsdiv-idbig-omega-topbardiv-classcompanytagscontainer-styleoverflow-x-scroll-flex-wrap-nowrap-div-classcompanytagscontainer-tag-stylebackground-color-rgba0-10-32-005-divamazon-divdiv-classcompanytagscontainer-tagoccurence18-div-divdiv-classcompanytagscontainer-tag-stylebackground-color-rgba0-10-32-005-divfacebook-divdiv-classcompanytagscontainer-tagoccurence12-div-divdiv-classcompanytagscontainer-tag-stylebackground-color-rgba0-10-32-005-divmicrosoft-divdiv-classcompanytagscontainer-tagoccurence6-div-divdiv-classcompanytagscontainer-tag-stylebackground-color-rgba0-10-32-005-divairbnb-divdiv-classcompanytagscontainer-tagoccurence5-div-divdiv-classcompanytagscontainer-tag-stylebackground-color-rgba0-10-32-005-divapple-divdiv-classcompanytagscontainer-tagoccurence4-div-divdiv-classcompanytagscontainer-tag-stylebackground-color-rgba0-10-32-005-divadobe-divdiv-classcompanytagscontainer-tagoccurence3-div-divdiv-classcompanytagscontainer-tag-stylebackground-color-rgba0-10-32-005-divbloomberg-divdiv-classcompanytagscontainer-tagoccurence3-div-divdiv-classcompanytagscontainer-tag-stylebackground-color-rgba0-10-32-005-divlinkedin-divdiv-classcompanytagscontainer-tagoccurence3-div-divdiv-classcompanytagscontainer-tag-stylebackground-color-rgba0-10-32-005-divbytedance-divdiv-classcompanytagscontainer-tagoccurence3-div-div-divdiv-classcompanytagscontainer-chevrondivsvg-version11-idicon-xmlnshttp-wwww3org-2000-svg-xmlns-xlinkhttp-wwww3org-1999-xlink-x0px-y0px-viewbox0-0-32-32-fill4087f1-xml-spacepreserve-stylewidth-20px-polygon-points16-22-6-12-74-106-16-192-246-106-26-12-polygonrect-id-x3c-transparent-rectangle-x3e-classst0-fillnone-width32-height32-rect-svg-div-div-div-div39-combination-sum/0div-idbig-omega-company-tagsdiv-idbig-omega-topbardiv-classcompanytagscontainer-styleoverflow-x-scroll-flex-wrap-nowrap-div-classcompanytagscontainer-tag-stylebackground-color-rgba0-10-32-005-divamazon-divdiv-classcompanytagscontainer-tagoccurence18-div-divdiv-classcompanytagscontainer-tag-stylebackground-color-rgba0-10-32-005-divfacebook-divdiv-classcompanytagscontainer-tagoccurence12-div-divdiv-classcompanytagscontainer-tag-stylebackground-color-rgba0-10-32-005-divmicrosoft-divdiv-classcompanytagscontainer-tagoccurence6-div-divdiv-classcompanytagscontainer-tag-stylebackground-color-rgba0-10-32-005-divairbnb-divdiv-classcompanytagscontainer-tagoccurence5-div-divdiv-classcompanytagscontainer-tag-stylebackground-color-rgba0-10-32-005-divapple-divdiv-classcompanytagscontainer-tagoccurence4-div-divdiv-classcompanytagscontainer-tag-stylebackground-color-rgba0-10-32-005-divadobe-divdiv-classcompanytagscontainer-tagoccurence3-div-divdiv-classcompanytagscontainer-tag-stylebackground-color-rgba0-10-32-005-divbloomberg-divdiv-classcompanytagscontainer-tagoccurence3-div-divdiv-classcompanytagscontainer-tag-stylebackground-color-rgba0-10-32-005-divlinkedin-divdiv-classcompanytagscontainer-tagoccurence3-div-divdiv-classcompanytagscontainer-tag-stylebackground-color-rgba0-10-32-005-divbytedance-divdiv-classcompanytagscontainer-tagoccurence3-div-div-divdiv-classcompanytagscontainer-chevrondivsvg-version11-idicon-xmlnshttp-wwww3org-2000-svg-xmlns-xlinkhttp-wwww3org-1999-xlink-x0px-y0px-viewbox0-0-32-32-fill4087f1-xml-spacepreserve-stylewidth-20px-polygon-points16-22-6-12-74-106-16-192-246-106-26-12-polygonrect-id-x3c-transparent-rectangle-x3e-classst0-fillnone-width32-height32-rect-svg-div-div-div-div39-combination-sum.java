@@ -2,10 +2,8 @@ class Solution {
     public List<List<Integer>> combinationSum(int[] a, int s) {
   List<List<Integer>>ans =new ArrayList<>();
         List<Integer>ds =new ArrayList<>();
-        
         findCombinations(0,a,s,ans,ds);
         return ans;
-        
     }
     
     public static void findCombinations(int ind, int[] arr, int target, List < List < Integer >> ans, List < Integer > ds) {
