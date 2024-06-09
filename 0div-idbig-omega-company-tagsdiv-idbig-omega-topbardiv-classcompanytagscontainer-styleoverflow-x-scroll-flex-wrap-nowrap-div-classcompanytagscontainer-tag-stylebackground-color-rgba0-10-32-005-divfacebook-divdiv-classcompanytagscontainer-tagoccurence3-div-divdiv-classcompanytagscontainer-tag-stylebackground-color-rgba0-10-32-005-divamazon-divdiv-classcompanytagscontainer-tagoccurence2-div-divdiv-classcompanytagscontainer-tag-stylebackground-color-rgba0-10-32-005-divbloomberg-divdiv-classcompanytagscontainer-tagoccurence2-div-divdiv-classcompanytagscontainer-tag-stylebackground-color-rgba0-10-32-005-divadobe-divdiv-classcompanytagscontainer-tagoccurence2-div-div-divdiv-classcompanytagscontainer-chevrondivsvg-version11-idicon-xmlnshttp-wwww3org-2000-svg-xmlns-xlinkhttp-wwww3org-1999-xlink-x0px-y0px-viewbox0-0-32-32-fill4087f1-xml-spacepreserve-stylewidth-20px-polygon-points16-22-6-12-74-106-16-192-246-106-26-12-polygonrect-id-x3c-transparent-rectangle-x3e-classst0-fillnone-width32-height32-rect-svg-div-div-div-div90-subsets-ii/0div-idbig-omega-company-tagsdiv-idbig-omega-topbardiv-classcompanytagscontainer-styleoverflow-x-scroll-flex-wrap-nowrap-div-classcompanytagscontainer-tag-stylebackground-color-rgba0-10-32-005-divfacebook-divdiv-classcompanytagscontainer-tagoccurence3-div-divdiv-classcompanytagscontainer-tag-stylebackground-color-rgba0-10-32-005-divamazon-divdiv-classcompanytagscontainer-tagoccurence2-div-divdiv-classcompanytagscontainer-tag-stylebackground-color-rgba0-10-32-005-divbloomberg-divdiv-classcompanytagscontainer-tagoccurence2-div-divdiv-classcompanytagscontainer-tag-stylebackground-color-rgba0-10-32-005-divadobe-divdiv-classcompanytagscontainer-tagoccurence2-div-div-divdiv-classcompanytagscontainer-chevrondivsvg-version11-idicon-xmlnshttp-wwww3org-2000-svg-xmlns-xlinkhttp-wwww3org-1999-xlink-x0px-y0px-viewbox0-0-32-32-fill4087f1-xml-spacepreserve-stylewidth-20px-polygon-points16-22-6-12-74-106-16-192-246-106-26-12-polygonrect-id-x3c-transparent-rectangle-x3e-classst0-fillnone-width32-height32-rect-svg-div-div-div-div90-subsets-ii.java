@@ -1,20 +1,20 @@
 class Solution {
-    public List<List<Integer>> subsetsWithDup(int[] nums) {
-          List<List<Integer>> ans = new ArrayList<>();
-        List<Integer> a=new ArrayList<>();
-        int n= nums.length;
-        for(int i=0; i<(1<<n); i++){
-            a=new ArrayList<>();
-            for(int j=0; j<n; j++){
-                
-                if((i&(1<<j))!=0) a.add(nums[j]);
-            
-            }
-            Collections.sort(a);
-            if(!ans.contains(a))
-            ans.add(a);
-        }
+    
+    public static void findSum(int ind,int arr [],int n,ArrayList<Integer>ds,List<List<Integer>>ans){
         
+            ans.add(new ArrayList<>(ds));
+           
+        for(int i=ind; i<n; i++){
+            if(i>ind  &&arr[i]==arr[i-1]) continue;
+        ds.add(arr[i]);
+        findSum( i+1,arr,n,ds,ans);
+        ds.remove(ds.size()-1);
+        }
+    }
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+       List<List<Integer>>ans = new ArrayList<>();
+        Arrays.sort(nums);
+        findSum(0,nums,nums.length,new ArrayList<>(),ans);
         return ans;
     }
-}
+}     
