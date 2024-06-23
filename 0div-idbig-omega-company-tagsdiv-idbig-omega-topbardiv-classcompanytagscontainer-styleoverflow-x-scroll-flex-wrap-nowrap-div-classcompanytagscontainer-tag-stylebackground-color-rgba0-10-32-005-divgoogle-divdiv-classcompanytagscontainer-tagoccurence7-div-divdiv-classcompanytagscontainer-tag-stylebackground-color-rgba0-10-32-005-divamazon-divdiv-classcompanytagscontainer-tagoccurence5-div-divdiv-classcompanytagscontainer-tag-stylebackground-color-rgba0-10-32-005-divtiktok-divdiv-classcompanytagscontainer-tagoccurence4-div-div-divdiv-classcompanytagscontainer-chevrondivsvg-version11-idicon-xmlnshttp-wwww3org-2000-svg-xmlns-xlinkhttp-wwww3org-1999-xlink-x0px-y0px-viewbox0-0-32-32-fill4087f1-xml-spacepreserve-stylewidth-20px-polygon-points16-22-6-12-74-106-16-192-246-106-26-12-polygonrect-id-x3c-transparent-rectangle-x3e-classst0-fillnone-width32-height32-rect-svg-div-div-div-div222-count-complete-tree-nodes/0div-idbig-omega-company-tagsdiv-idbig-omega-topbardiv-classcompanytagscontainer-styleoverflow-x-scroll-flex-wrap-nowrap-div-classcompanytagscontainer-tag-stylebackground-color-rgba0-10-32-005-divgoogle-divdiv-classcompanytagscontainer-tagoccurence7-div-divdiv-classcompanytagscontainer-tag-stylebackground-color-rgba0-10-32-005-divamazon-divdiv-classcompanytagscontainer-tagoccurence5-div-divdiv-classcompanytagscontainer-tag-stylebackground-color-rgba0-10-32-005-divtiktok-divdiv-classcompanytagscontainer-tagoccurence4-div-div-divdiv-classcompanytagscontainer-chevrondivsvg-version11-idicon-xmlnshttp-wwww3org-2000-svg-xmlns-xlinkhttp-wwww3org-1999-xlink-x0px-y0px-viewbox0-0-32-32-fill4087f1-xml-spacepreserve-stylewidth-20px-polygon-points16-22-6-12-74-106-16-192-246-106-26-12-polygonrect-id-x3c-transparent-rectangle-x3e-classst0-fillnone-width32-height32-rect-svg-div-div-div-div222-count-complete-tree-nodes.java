@@ -14,21 +14,16 @@
  * }
  */
 class Solution {
+    void dfs(TreeNode root ,int []arr){
+        if(root==null) return;
+        
+        arr[0]++;
+        dfs(root.left,arr);
+        dfs(root.right,arr);
+    }
     public int countNodes(TreeNode root) {
-        if(root==null) return 0;
-        Queue<TreeNode>q=new LinkedList<>();
-        q.offer(root);
-        int count=0;
-        while(!q.isEmpty()){
-        TreeNode curr=q.poll();
-        if(curr.left!=null){
-            q.offer(curr.left);
-        }  
-        if(curr.right!=null){
-            q.offer(curr.right);
-        }
-            count++;
-        }
-        return count;
+      int arr[]=new int[1];
+        dfs(root , arr);
+        return arr[0];
   }
 }
